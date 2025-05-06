@@ -15,4 +15,4 @@ jobs:
           java-version: '16'
 
       - name: Build with Gradle
-        run: ./gradlew clean build --info --stacktrace
+        run: .\gradlew clean build --info --stacktrace
