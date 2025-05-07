@@ -1,3 +1,5 @@
+[![CI](https://github.com/mo-sh44/HarryPotterWebTech/actions/workflows/test.yml/badge.svg)](https://github.com/mo-sh44/HarryPotterWebTech/actions/workflows/test.yml)
+
 # 🧙‍♂️ Harry Potter Webprojekt – Webtechnologien Kurs
 📚 Projektbeschreibung
 Dieses Projekt wurde im Rahmen des Kurses Webtechnologien erstellt. Wir – ein Team bestehend aus zwei Gruppenmitgliedern – haben gemeinsam eine interaktive Website zum Thema Harry Potter entwickelt.
