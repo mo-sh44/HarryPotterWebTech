@@ -8,11 +8,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+
       - name: Set up JDK 16
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
           java-version: '16'
 
+
+      - name: Check Java version
+        run: java -version
+
       - name: Build with Gradle
-        run: .\gradlew clean build --info --stacktrace
+        run: ./gradlew clean build --info --stacktrace
