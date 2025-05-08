@@ -1,16 +1,16 @@
 package de.htwberlin.webtech.model;
 
+import jakarta.persistence.Embeddable;
 
+@Embeddable
 public class Wand {
     private String wood;
     private String core;
     private Double length;
 
-    // Constructors
     public Wand() {
     }
 
-    // Getters and Setters
     public String getWood() {
         return wood;
     }
@@ -35,4 +35,3 @@ public class Wand {
         this.length = length;
     }
 }
-

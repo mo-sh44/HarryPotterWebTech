@@ -3,11 +3,19 @@ package de.htwberlin.webtech.model;
 import de.htwberlin.webtech.model.Wand;
 
 import java.util.List;
+import jakarta.persistence.*;
 
+
+@Entity
 public class Character {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long internalId;
+
     private String id;
     private String name;
-    private List<String> alternateNames;
+    private String alternateNames;
     private String species;
     private String gender;
     private String house;
@@ -17,20 +25,21 @@ public class Character {
     private String ancestry;
     private String eyeColour;
     private String hairColour;
+
+    @Embedded
     private Wand wand;
+
     private String patronus;
     private boolean hogwartsStudent;
     private boolean hogwartsStaff;
     private String actor;
-    private List<String> alternateActors;
+    private String alternateActors;
     private boolean alive;
     private String image;
 
-    // Constructors
     public Character() {
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -47,11 +56,11 @@ public class Character {
         this.name = name;
     }
 
-    public List<String> getAlternateNames() {
+    public String getAlternateNames() {
         return alternateNames;
     }
 
-    public void setAlternateNames(List<String> alternateNames) {
+    public void setAlternateNames(String alternateNames) {
         this.alternateNames = alternateNames;
     }
 
@@ -167,11 +176,12 @@ public class Character {
         this.actor = actor;
     }
 
-    public List<String> getAlternateActors() {
+    public String getAlternateActors() {
         return alternateActors;
     }
 
-    public void setAlternateActors(List<String> alternateActors) {
+
+    public void setAlternateActors(String alternateActors) {
         this.alternateActors = alternateActors;
     }
 
@@ -191,3 +201,5 @@ public class Character {
         this.image = image;
     }
 }
+
+

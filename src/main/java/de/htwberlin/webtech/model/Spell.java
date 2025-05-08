@@ -1,15 +1,21 @@
 package de.htwberlin.webtech.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Spell {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long internalId;
+
     private String id;
     private String name;
     private String description;
 
-    // Constructors
     public Spell() {
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }

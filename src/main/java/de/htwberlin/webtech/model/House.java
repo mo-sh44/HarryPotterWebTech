@@ -1,22 +1,26 @@
 package de.htwberlin.webtech.model;
 
-import java.util.List;
+import jakarta.persistence.*;
 
+@Entity
 public class House {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long internalId;
+
     private String id;
     private String name;
     private String founder;
     private String mascot;
-    private List<String> values;
-    private List<String> colors;
+    private String values;
+    private String colors;
     private String ghost;
     private String commonRoom;
 
-    // Constructors
     public House() {
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }
@@ -49,19 +53,19 @@ public class House {
         this.mascot = mascot;
     }
 
-    public List<String> getValues() {
+    public String getValues() {
         return values;
     }
 
-    public void setValues(List<String> values) {
+    public void setValues(String values) {
         this.values = values;
     }
 
-    public List<String> getColors() {
+    public String getColors() {
         return colors;
     }
 
-    public void setColors(List<String> colors) {
+    public void setColors(String colors) {
         this.colors = colors;
     }
 
@@ -81,4 +85,3 @@ public class House {
         this.commonRoom = commonRoom;
     }
 }
-
