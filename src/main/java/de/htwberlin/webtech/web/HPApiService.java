@@ -34,7 +34,7 @@ public class HPApiService {
         return response.getBody();
     }
     public String getHogwartsStaff() {
-        String url = "/api/characters/staff";
+        String url = "https://hp-api.onrender.com/api/characters/staff";
         return restTemplate.getForObject(url, String.class);
     }
 
