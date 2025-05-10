@@ -15,22 +15,18 @@ public class HPApiService {
     }
 
     public String getAllCharacters() {
-        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/api/v1/characters", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "https://hp-api.onrender.com/api/characters", String.class);
         return response.getBody();
     }
 
     public String getStudents() {
-        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/api/characters/students", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "https://hp-api.onrender.com/api/characters/students", String.class);
         return response.getBody();
     }
 
-    public String getStaff() {
-        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/api/characters/staff", String.class);
-        return response.getBody();
-    }
 
     public String getSpells() {
-        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/api/spells", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "https://hp-api.onrender.com/api/spells", String.class);
         return response.getBody();
     }
     public String getHogwartsStaff() {
@@ -42,11 +38,6 @@ public class HPApiService {
         String url = "https://hp-api.onrender.com/api/characters/house/" + house;
         return restTemplate.getForObject(url, String.class);
     }
-    public String getCharacterById(String id) {
-        String url = "/api/character/" + id;
-        return restTemplate.getForObject(url, String.class);
-    }
-
 
 
 }
