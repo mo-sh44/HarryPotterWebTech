@@ -249,3 +249,6 @@ eval "set -- $(
     )" '"$@"'
 
 exec "$JAVACMD" "$@"
+
+
+# added dummy comment to force permission update
