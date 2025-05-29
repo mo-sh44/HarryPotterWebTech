@@ -1,13 +1,11 @@
 spring:
   datasource:
-      url: ${DATASOURCE_URL}
-      username: ${DATASOURCE_USERNAME}
-      password: ${DATASOURCE_PASSWORD}
-
-      driver-class-name: org.postgresql.Driver
-      hikari:
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
       maximum-pool-size: 5
-
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
