@@ -8,19 +8,16 @@ spring:
       maximum-pool-size: 5
 
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     hibernate:
       ddl-auto: update
     open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   sql:
     init:
       platform: postgres
       mode: always
-
-jakarta:
-  persistence:
-    jdbc:
-      url: ${DB_URL}
-      user: ${DB_USER}
-      password: ${DB_PASSWORD}
