@@ -8,8 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
+        registry.addMapping("/api/**")  // nur eigene API-Routen erlauben
                 .allowedOrigins("https://harrypotter-frontend.onrender.com")
-                .allowedMethods("*");
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowedHeaders("*")
+                .allowCredentials(true); // falls Login oder Cookies nötig
     }
 }
