@@ -32,7 +32,6 @@ dependencies {
 
 
 
-/*tasks.withType(Test) {
+tasks.withType(Test) {
 	enabled = false
 }
-*/

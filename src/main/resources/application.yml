@@ -1,7 +1,6 @@
 spring:
   config:
     import: "optional:file:.env[.properties]"
-
   datasource:
     url: ${DATASOURCE_URL}
     username: ${DATASOURCE_USERNAME}
@@ -11,10 +10,10 @@ spring:
       maximum-pool-size: 5
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
     hibernate:
       ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
 
   sql:
