@@ -1,22 +1,67 @@
 spring:
   datasource:
-    url: ${DATABASE_URL}
-    #username: ${DATABASE_USERNAME}
-    # password: ${DATABASE_PASSWORD}
-    driver-class-name: org.postgresql.Driver
+    url: ${DATASOURCE_URL}
     hikari:
       maximum-pool-size: 5
 
   jpa:
+    show-sql: false
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: false
     open-in-view: false
 
-sql:
-  init:
-    platform: postgres
-    mode: always
+  sql:
+    init:
+      platform: postgres
+      mode: always
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#spring:
+#  datasource:
+#    url: ${DATABASE_URL}
+#    #username: ${DATABASE_USERNAME}
+#    # password: ${DATABASE_PASSWORD}
+#    driver-class-name: org.postgresql.Driver
+#    hikari:
+#      maximum-pool-size: 5
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    show-sql: false
+#    open-in-view: false
+#
+#sql:
+#  init:
+#    platform: postgres
+#    mode: always
