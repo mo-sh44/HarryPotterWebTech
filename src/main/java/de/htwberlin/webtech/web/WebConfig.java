@@ -13,7 +13,12 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedOrigins("http://localhost:5173","http://localhost:5175", "https://harrypotter-frontend.onrender.com" )
+                .allowedOrigins(
+                        "http://localhost:5174",
+                        "http://localhost:5175",
+                        "https://harrypotter-frontend.onrender.com",
+                        "https://harrypotterwebtech.onrender.com"  // ✅ هذا هو عنوان الـ Frontend الخاص بك على Render
+                )
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
