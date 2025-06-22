@@ -1,31 +1,40 @@
+#spring:
+#  datasource:
+#    url: ${DATASOURCE_URL}
+#    username: ${DATASOURCE_USERNAME}
+#    password: ${DATASOURCE_PASSWORD}
+#    hikari:
+#      maximum-pool-size: 5
+#
+#  jpa:
+#    show-sql: false
+#    hibernate:
+#      ddl-auto: update
+#    open-in-view: false
+#
+#  sql:
+#    init:
+#      platform: postgres
+#      mode: always
+#
+
 spring:
   datasource:
     url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
     hikari:
       maximum-pool-size: 5
+    driver-class-name: org.postgresql.Driver # ✅ تأكد من إلغاء التعليق على هذا السطر
 
   jpa:
     show-sql: false
     hibernate:
       ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect # ✅ تأكد من إلغاء التعليق على هذا السطر
     open-in-view: false
 
   sql:
     init:
       platform: postgres
       mode: always
-
-
-#spring:
-#  datasource:
-#    username: sa
-#    password:
-#    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-#    driver-class-name: org.h2.Driver
-#
-#  sql:
-#    init:
-#      mode: always
-

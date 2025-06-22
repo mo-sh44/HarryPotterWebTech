@@ -17,8 +17,7 @@ public class WebConfig implements WebMvcConfigurer {
                         "http://localhost:5174",
                         "http://localhost:5175",
                         "https://harrypotter-frontend.onrender.com",
-                        "https://harrypotterwebtech.onrender.com"  // ✅ هذا هو عنوان الـ Frontend الخاص بك على Render
-                )
+                        "https://harrypotterwebtech.onrender.com")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
