@@ -48,3 +48,4 @@ public class FavoriteCharacterController {
                 .orElse(ResponseEntity.notFound().build());
     }
 }
+
