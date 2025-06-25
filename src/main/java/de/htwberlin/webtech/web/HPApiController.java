@@ -29,7 +29,7 @@ public class HPApiController {
         return ResponseEntity.ok(hpApiService.getHogwartsStaff());
     }
 
-    @GetMapping("/spells")
+    @GetMapping("/spell")
     public ResponseEntity<String> getSpells() {
         return ResponseEntity.ok(hpApiService.getSpells());
     }
