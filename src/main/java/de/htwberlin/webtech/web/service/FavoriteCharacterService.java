@@ -28,6 +28,7 @@ public class FavoriteCharacterService {
         return repository.findById(id);
     }
 
+
     // ✅ حفظ عنصر
     public FavoriteCharacter save(FavoriteCharacter character) {
         return repository.save(character);
@@ -37,4 +38,10 @@ public class FavoriteCharacterService {
     public void delete(Long id) {
         repository.deleteById(id);
     }
+
+
+    public List<FavoriteCharacter> findAll() {
+        return repository.findAll();
+    }
+
 }
