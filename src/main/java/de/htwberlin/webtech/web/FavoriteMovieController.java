@@ -1,7 +1,7 @@
 package de.htwberlin.webtech.web;
 
-import de.htwberlin.webtech.model.FavoriteCharacter;
-import de.htwberlin.webtech.web.service.FavoriteCharacterService;
+import de.htwberlin.webtech.model.FavoriteMovie;
+import de.htwberlin.webtech.web.service.FavoriteMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,40 +10,40 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/favorites")
+@RequestMapping("/api/favorite-movies")
 @CrossOrigin(origins = {
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:5175",
         "https://harrypotter-frontend.onrender.com"
 })
-public class FavoriteCharacterController {
+public class FavoriteMovieController {
 
-    private final FavoriteCharacterService service;
+    private final FavoriteMovieService service;
 
     @Autowired
-    public FavoriteCharacterController(FavoriteCharacterService service) {
+    public FavoriteMovieController(FavoriteMovieService service) {
         this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<FavoriteCharacter>> getFavoritesByUser(@RequestHeader("user-id") String userId) {
+    public ResponseEntity<List<FavoriteMovie>> getFavoritesByUser(@RequestHeader("user-id") String userId) {
         return ResponseEntity.ok(service.findByUserId(userId));
     }
 
     @PostMapping
-    public ResponseEntity<FavoriteCharacter> saveFavorite(@RequestBody FavoriteCharacter character) {
-        if (character.getUserId() == null || character.getUserId().isBlank()) {
+    public ResponseEntity<FavoriteMovie> saveFavorite(@RequestBody FavoriteMovie movie) {
+        if (movie.getUserId() == null || movie.getUserId().isBlank()) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(service.save(character));
+        return ResponseEntity.ok(service.save(movie));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFavorite(@PathVariable Long id, @RequestHeader("user-id") String userId) {
-        Optional<FavoriteCharacter> favOpt = service.findById(id);
+        Optional<FavoriteMovie> favOpt = service.findById(id);
         if (favOpt.isPresent()) {
-            FavoriteCharacter fav = favOpt.get();
+            FavoriteMovie fav = favOpt.get();
             if (fav.getUserId().equals(userId)) {
                 service.delete(id);
                 return ResponseEntity.noContent().build();

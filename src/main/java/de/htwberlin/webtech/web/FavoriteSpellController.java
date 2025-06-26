@@ -1,8 +1,7 @@
 package de.htwberlin.webtech.web;
 
-import de.htwberlin.webtech.model.FavoriteCharacter;
-import de.htwberlin.webtech.web.service.FavoriteCharacterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import de.htwberlin.webtech.model.FavoriteSpell;
+import de.htwberlin.webtech.web.service.FavoriteSpellService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,40 +9,39 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/favorites")
+@RequestMapping("/api/favorite-spells")
 @CrossOrigin(origins = {
         "http://localhost:5173",
         "http://localhost:5174",
         "http://localhost:5175",
         "https://harrypotter-frontend.onrender.com"
 })
-public class FavoriteCharacterController {
+public class FavoriteSpellController {
 
-    private final FavoriteCharacterService service;
+    private final FavoriteSpellService service;
 
-    @Autowired
-    public FavoriteCharacterController(FavoriteCharacterService service) {
+    public FavoriteSpellController(FavoriteSpellService service) {
         this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<FavoriteCharacter>> getFavoritesByUser(@RequestHeader("user-id") String userId) {
-        return ResponseEntity.ok(service.findByUserId(userId));
+    public List<FavoriteSpell> getFavoritesByUser(@RequestHeader("user-id") String userId) {
+        return service.findByUserId(userId);
     }
 
     @PostMapping
-    public ResponseEntity<FavoriteCharacter> saveFavorite(@RequestBody FavoriteCharacter character) {
-        if (character.getUserId() == null || character.getUserId().isBlank()) {
+    public ResponseEntity<FavoriteSpell> saveFavorite(@RequestBody FavoriteSpell spell) {
+        if (spell.getUserId() == null || spell.getUserId().isBlank()) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(service.save(character));
+        return ResponseEntity.ok(service.save(spell));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteFavorite(@PathVariable Long id, @RequestHeader("user-id") String userId) {
-        Optional<FavoriteCharacter> favOpt = service.findById(id);
+        Optional<FavoriteSpell> favOpt = service.findById(id);
         if (favOpt.isPresent()) {
-            FavoriteCharacter fav = favOpt.get();
+            FavoriteSpell fav = favOpt.get();
             if (fav.getUserId().equals(userId)) {
                 service.delete(id);
                 return ResponseEntity.noContent().build();
