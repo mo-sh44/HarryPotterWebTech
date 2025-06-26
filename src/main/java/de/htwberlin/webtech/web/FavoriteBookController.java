@@ -10,12 +10,17 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/favorite-books")
-@CrossOrigin(origins = {
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://localhost:5175",
-        "https://harrypotter-frontend.onrender.com"
-})
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "http://localhost:5174",
+                "http://localhost:5175",
+                "https://harrypotter-frontend.onrender.com"
+        },
+        allowedHeaders = "*",
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.OPTIONS}
+)
+
 public class FavoriteBookController {
 
     private final FavoriteBookService service;
