@@ -25,9 +25,10 @@ public class HPApiService {
     }
 
     public String getSpells() {
-        ResponseEntity<String> response = restTemplate.getForEntity(BASE_URL + "/spells", String.class);
-        return response.getBody();
+        String url = "https://hp-api.onrender.com/api/spells";
+        return restTemplate.getForObject(url, String.class);
     }
+
 
     public String getHogwartsStaff() {
         return restTemplate.getForObject(BASE_URL + "/characters/staff", String.class);
