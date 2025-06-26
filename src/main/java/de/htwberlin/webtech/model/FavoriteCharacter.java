@@ -29,36 +29,36 @@ public class FavoriteCharacter {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getHouse() {
-        return house;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getHouse() {
+        return house;
+    }
+
     public void setHouse(String house) {
         this.house = house;
     }
 
+    public String getImage() {
+        return image;
+    }
+
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getUserId() {
+        return userId;
     }
 
     public void setUserId(String userId) {
