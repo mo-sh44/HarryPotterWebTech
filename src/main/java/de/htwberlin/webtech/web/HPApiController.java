@@ -23,13 +23,12 @@ public class HPApiController {
         return ResponseEntity.ok(hpApiService.getStudents());
     }
 
-
-    @GetMapping("/characters/hogwarts-staff")
+    @GetMapping("/characters/staff")
     public ResponseEntity<String> getHogwartsStaff() {
         return ResponseEntity.ok(hpApiService.getHogwartsStaff());
     }
 
-    @GetMapping("/spell")
+    @GetMapping("/spells")
     public ResponseEntity<String> getSpells() {
         return ResponseEntity.ok(hpApiService.getSpells());
     }
@@ -38,5 +37,4 @@ public class HPApiController {
     public ResponseEntity<String> getCharactersByHouse(@PathVariable String house) {
         return ResponseEntity.ok(hpApiService.getCharactersByHouse(house));
     }
-
 }
