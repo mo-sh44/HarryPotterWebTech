@@ -13,24 +13,28 @@ public class FavoriteCharacterService {
 
     private final FavoriteCharacterRepository repository;
 
+    @Autowired
     public FavoriteCharacterService(FavoriteCharacterRepository repository) {
         this.repository = repository;
     }
 
-    public List<FavoriteCharacter> findAll() {
-        return repository.findAll();
+    // ✅ استرجاع المفضلات حسب userId
+    public List<FavoriteCharacter> findByUserId(String userId) {
+        return repository.findByUserId(userId);
     }
 
+    // ✅ استرجاع حسب ID
     public Optional<FavoriteCharacter> findById(Long id) {
         return repository.findById(id);
     }
 
+    // ✅ حفظ عنصر
     public FavoriteCharacter save(FavoriteCharacter character) {
         return repository.save(character);
     }
 
+    // ✅ حذف عنصر
     public void delete(Long id) {
         repository.deleteById(id);
     }
 }
-

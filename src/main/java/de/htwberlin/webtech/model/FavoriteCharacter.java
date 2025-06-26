@@ -13,12 +13,16 @@ public class FavoriteCharacter {
     private String house;
     private String image;
 
+    @Column(name = "user_id")
+    private String userId;
+
     public FavoriteCharacter() {}
 
-    public FavoriteCharacter(String name, String house, String image) {
+    public FavoriteCharacter(String name, String house, String image, String userId) {
         this.name = name;
         this.house = house;
         this.image = image;
+        this.userId = userId;
     }
 
     public Long getId() {
@@ -37,6 +41,10 @@ public class FavoriteCharacter {
         return image;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -51,5 +59,9 @@ public class FavoriteCharacter {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
