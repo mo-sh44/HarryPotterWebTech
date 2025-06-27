@@ -31,6 +31,9 @@ public class FavoriteCharacterService {
 
     // ✅ حفظ عنصر
     public FavoriteCharacter save(FavoriteCharacter character) {
+        if (character.getUserId() == null || character.getUserId().isBlank()) {
+            throw new IllegalArgumentException("userId darf nicht leer sein");
+        }
         return repository.save(character);
     }
 
@@ -43,5 +46,6 @@ public class FavoriteCharacterService {
     public List<FavoriteCharacter> findAll() {
         return repository.findAll();
     }
+
 
 }
