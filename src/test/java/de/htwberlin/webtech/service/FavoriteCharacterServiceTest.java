@@ -49,6 +49,7 @@ class FavoriteCharacterServiceTest {
 	void testSaveCharacter() {
 		FavoriteCharacter character = new FavoriteCharacter();
 		character.setName("Ron Weasley");
+		character.setUserId("test-user-123");
 
 		Mockito.when(repository.save(character)).thenReturn(character);
 
